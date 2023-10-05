@@ -4,19 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={{ 
-        color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginTop: 48
-      }}>
+      <Text style={styles.eventName}>
         Nome do evento  
       </Text>
 
-      <Text style={{ 
-        color: '#fff',
-        fontSize: 16,
-      }}>
+      <Text style={styles.eventDate}>
         Sexta, 4 de Outubro de 2023.
       </Text>
       <StatusBar style={'inverted'} />
@@ -30,4 +22,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#131016',
     padding: 24
   },
+  eventName: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 48
+  },
+  eventDate: {
+    color: '#fff',
+    fontSize: 16,
+  }
 });
