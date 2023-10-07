@@ -1,17 +1,30 @@
-import { Text, TextInput, View, TouchableOpacity, ScrollView  } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity, FlatList, Alert  } from 'react-native';
 
 import { styles } from './styles';
 import { Participant } from '../../components/Participant';
 
 export function Home() {
-  const participants = [ 'Pedro', 'Rodrigo', 'Diego', 'Mayk', 'John', 'Jack', 'Rafaela', 'João', 'Ana']
+  const participants = [ "Pedro", "Rodrigo", "Diego", "Mayk", "John", "Jack", "Rafaela", "João", "Ana"]
 
   function handleAddParticipant() {
-    console.log('fds')
+    if (participants.includes("Pedro")) {
+      return Alert.alert("Participante existe", "Já existe um participante na lista com esse nome.")
+    }
+    console.log("fds")
   }
 
   function handleRemoveParticipant(name: string) {
-    console.log('particpant removed' + name)
+    Alert.alert("Remover", `Gostaria de remover o participante ${name}?`, [
+      {
+        text: "Sim",
+        onPress: () => Alert.alert("Deletado!")
+      },
+      {
+        text: 'Não',
+        style: 'cancel'
+      }
+    ])
+    console.log("particpant removed" + name)
   }
 
   return (
@@ -27,7 +40,7 @@ export function Home() {
       <View style={styles.form}>      
         <TextInput 
           style={styles.input}
-          placeholder='Nome do participante'
+          placeholder="Nome do participante"
           placeholderTextColor="#6b6b6b"
         />
 
@@ -36,17 +49,23 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView> 
-        {
-          participants.map(participant => (
-            <Participant 
-              key={participant} 
-              name={participant} 
-              onRemove={() => handleRemoveParticipant(participant)} 
-            />
-          ))
-        }
-      </ScrollView>
+      <FlatList 
+        data={participants}
+        keyExtractor={item => item}
+        renderItem={({item}) => (
+          <Participant 
+            key={item} 
+            name={item} 
+            onRemove={() => handleRemoveParticipant(item)} 
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <Text style={styles.listEmptyText}>
+            Ninguém chegou no evento ainda ? Adicione participantes a sua lista de presença.
+          </Text>
+        )}
+      />
     </View>
   );
 }
