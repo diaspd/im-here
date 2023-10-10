@@ -36,9 +36,14 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.eventName}>
-        Nome do evento  
-      </Text>
+
+      <TextInput 
+        style={styles.eventName} 
+        numberOfLines={1} 
+        placeholderTextColor="#c1c1c4" 
+        placeholder='Nome do evento'
+        maxLength={28}
+      />
 
       <Text style={styles.eventDate}>
         {weekDay}, {day} de {month} de {fullYear.toString()}.
