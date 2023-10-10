@@ -12,6 +12,10 @@ export function Home() {
   const { day, month, weekDay, fullYear } = getActualDate()
 
   function handleAddParticipant() {
+    if (participantName === '') {
+      return
+    }
+
     if (participants.includes(participantName)) {
       return Alert.alert("Participante existe", "Já existe um participante na lista com esse nome.")
     }
@@ -31,7 +35,6 @@ export function Home() {
         style: 'cancel'
       }
     ])
-    console.log("particpant removed" + name)
   }
 
   return (
@@ -40,7 +43,7 @@ export function Home() {
       <TextInput 
         style={styles.eventName} 
         numberOfLines={1} 
-        placeholderTextColor="#c1c1c4" 
+        placeholderTextColor="#d3d3d3" 
         placeholder='Nome do evento'
         maxLength={28}
       />
@@ -58,7 +61,7 @@ export function Home() {
           value={participantName}
         />
 
-        <TouchableOpacity style={styles.button} onPress={handleAddParticipant}>
+        <TouchableOpacity style={!participantName ? styles.buttonDisabled : styles.button} onPress={handleAddParticipant}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>

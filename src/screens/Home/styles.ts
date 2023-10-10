@@ -38,7 +38,16 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#31CF67',  
+  },
+  buttonDisabled: {
+    width: 56,
+    height: 56,
+    borderRadius: 5,
+    opacity: 0.5,
     backgroundColor: '#31CF67',
+    alignItems: 'center',
+    justifyContent: 'center', 
   },
   buttonText: {
     color: '#fff',
