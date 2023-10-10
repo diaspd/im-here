@@ -42,7 +42,8 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontWeight: 'bold',
+    fontSize: 20,
   },
   listEmptyText: {
     color: '#fff',

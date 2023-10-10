@@ -4,9 +4,12 @@ import { Text, TextInput, View, TouchableOpacity, FlatList, Alert  } from 'react
 import { styles } from './styles';
 import { Participant } from '../../components/Participant';
 
+import { getActualDate } from '../../utils/get-actual-date'
+
 export function Home() {
   const [participants, setParticipants] = useState<string[]>([]) 
   const [participantName, setParticipantName] = useState('') 
+  const { day, month, weekDay, fullYear } = getActualDate()
 
   function handleAddParticipant() {
     if (participants.includes(participantName)) {
@@ -38,7 +41,7 @@ export function Home() {
       </Text>
 
       <Text style={styles.eventDate}>
-        Sexta, 4 de Outubro de 2023.
+        {weekDay}, {day} de {month} de {fullYear.toString()}.
       </Text>
 
       <View style={styles.form}>      
