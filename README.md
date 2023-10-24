@@ -25,7 +25,7 @@ Clone the project and access the folder.
 ### Web
 
 ```bash
-$ git clone 
+$ git clone https://github.com/diaspd/im-here.git
 
 # Install the dependencies
 $ npm install
