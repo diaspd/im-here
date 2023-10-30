@@ -46,7 +46,7 @@ This project was developed with the following technologies:
 </br>
 
 ## 📄 Project
-💰 .
+💰 To learn bases of React Native, it's a simple project to add and remove participants.
 
 <br></br>
 
