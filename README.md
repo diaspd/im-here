@@ -23,6 +23,7 @@
 Clone the project and access the folder.
 
 ```bash
+# Clone the project
 $ git clone https://github.com/diaspd/im-here.git
 
 # Install the dependencies
